@@ -1,0 +1,288 @@
+==============================================================================
+PROPRIETARY SOFTWARE LICENSE
+==============================================================================
+
+Copyright (c) 2026 [Your Company Name]. All rights reserved.
+
+==============================================================================
+
+1. # GRANT OF LICENSE
+
+This Software and the accompanying documentation are proprietary and
+confidential property of [Your Company Name] ("Owner").
+
+Permission IS granted to:
+
+- Run this Software on your servers/infrastructure
+- Use this Software for your own internal business use
+- Use for testing and evaluation (time-limited trial)
+
+Permission is NOT granted to:
+
+- Copy, modify, or distribute this Software
+- Reverse engineer, decompile, or disassemble this Software
+- Use this Software in any unauthorized manner
+- Sublicense or transfer this Software to third parties
+- Share credentials or access with unauthorized users
+
+============================================================================== 2. RESTRICTIONS
+==============================================================================
+
+You may NOT:
+✗ Redistribute, copy, or share this Software with anyone
+✗ Modify, adapt, or create derivative works
+✗ Use this Software for commercial resale purposes
+✗ Sublicense or transfer to other organizations
+✗ Reverse engineer, decompile, or disassemble the Software
+✗ Remove or alter any copyright, patent, or proprietary notices
+✗ Use this Software in competing products or services
+✗ Publish the source code or documentation publicly
+✗ Create competing services based on this Software
+
+============================================================================== 3. OWNERSHIP
+==============================================================================
+
+This Software is owned by [Your Company Name]. All intellectual
+property rights, including patents, copyrights, and trade secrets,
+remain the exclusive property of the Owner.
+
+No rights are transferred to you except as explicitly stated above.
+
+============================================================================== 4. DISCLAIMER OF WARRANTY
+==============================================================================
+
+THE SOFTWARE IS PROVIDED "AS-IS" WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+IN NO EVENT SHALL THE OWNER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE,
+ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
+
+============================================================================== 5. LIMITATION OF LIABILITY
+==============================================================================
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW:
+
+IN NO EVENT SHALL THE OWNER BE LIABLE FOR:
+
+- Loss of data, business, or profits
+- Indirect, incidental, consequential, or special damages
+- Damages resulting from use or inability to use the Software
+- Damages resulting from unauthorized access or alteration
+- Third-party claims arising from use of the Software
+
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+============================================================================== 6. PAYMENT & SUBSCRIPTION
+==============================================================================
+
+This Software is provided as a subscription service. Your license is
+conditioned upon:
+
+- Timely payment of all fees
+- Compliance with these Terms
+- Providing accurate registration information
+- Maintaining account security
+
+Failure to pay will result in:
+
+- Immediate suspension of access
+- Potential legal action to recover fees
+- Permanent termination of license
+
+============================================================================== 7. CONFIDENTIALITY
+==============================================================================
+
+You acknowledge that this Software contains:
+
+- Proprietary algorithms and systems
+- Trade secrets of significant commercial value
+- Confidential business information
+
+You agree to:
+
+- Maintain the confidentiality of the Software
+- Protect against unauthorized access
+- Use only for authorized purposes
+- Not disclose to third parties
+
+Breach of confidentiality may result in injunctive relief and damages.
+
+============================================================================== 8. DATA & PRIVACY
+==============================================================================
+
+Your use of this Software is subject to our Privacy Policy:
+
+- Email and Stripe Customer ID collected for billing
+- Data encrypted in transit and at rest
+- Stripe handles all payment processing (PCI DSS Level 1)
+- GDPR compliant data processing
+- UK Data Protection Act 2018 compliance
+
+See PRIVACY.md for complete details.
+
+============================================================================== 9. TERMINATION
+==============================================================================
+
+This License is effective until terminated. We may terminate it if you:
+
+- Violate any term of this License
+- Fail to pay subscription fees
+- Engage in fraudulent activity
+- Breach confidentiality obligations
+- Use Software for unauthorized purposes
+- Violate laws or regulations
+
+Upon termination:
+
+- Your right to use the Software ends immediately
+- You must cease all use
+- Data access may be restricted
+- Outstanding payment obligations remain
+
+============================================================================== 10. GOVERNING LAW & JURISDICTION
+==============================================================================
+
+This License is governed by and construed in accordance with the laws
+of England & Wales, without regard to conflicts of law principles.
+
+Any disputes shall be resolved in the courts of England & Wales.
+
+============================================================================== 11. ENTIRE AGREEMENT
+==============================================================================
+
+This License, along with our Terms of Service and Privacy Policy,
+constitutes the entire agreement between you and the Owner regarding
+the Software.
+
+Any prior agreements, understandings, or negotiations are superseded.
+
+============================================================================== 12. UPDATES & MODIFICATIONS
+==============================================================================
+
+The Owner reserves the right to:
+
+- Modify or update this License at any time
+- Change pricing or billing terms (with notice)
+- Discontinue features or services (with notice)
+- Update functionality or requirements
+
+Changes take effect upon posting. Continued use constitutes acceptance.
+
+============================================================================== 13. FEEDBACK & SUGGESTIONS
+==============================================================================
+
+Any feedback, suggestions, or improvements you provide to the Owner:
+
+- May be used freely by the Owner without compensation
+- Becomes the property of the Owner
+- Is not subject to confidentiality obligations
+
+============================================================================== 14. COMPLIANCE STATEMENTS
+==============================================================================
+
+This Software and License comply with:
+
+- ✅ UK Companies Act 2006
+- ✅ UK Consumer Rights Act 2015
+- ✅ GDPR (Regulation (EU) 2016/679)
+- ✅ UK Data Protection Act 2018
+- ✅ Distance Selling Regulations 2000
+- ✅ PCI DSS (via Stripe payment processor)
+
+============================================================================== 15. CONTACT INFORMATION
+==============================================================================
+
+For questions about this License, please contact:
+
+Email: legal@[yourdomain.com]
+Address: [Your Company Address]
+Phone: [Your Phone Number]
+Website: [Your Website]
+
+============================================================================== 16. DEFINITIONS
+==============================================================================
+
+"Software" means this SaaS application, including all components,
+documentation, updates, and derivatives.
+
+"Owner" means [Your Company Name] and its successors/assignees.
+
+"You" or "Your" means the person or entity that has licensed the Software.
+
+"Use" means to access, run, or execute the Software.
+
+==============================================================================
+
+By accessing, downloading, or using this Software, you acknowledge that
+you have read, understood, and agree to be bound by this License.
+
+IF YOU DO NOT AGREE, DO NOT USE THIS SOFTWARE.
+
+==============================================================================
+
+Date Last Updated: January 15, 2026
+License Version: 1.0
+Status: ActiveTHIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+IN NO EVENT SHALL THE OWNER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING
+FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+
+# ============================================================================== 5. TERMINATION
+
+This license is effective until terminated. Your rights terminate immediately
+upon any breach of these terms and conditions.
+
+Upon termination, you must:
+
+- Cease all use of the Software
+- Destroy all copies of the Software in your possession
+- Certify compliance within 10 days
+
+# ============================================================================== 6. CONTACT FOR LICENSING
+
+For licensing inquiries, permissions, or exceptions, contact:
+
+Email: [YOUR EMAIL ADDRESS]
+Website: [YOUR WEBSITE]
+Company: [YOUR COMPANY NAME]
+
+# ============================================================================== 7. GOVERNING LAW
+
+This License is governed by and construed in accordance with the laws of
+[YOUR JURISDICTION], without regard to its conflict of laws principles.
+
+==============================================================================
+
+HOW TO CUSTOMIZE THIS LICENSE:
+
+Replace the following placeholders with your actual information:
+
+1. [YOUR NAME/COMPANY NAME]
+   → Your full name or company legal name
+   Example: "Acme Corporation Inc." or "John Smith"
+
+2. [YOUR EMAIL ADDRESS]
+   → Your contact email for licensing inquiries
+   Example: "licensing@acme.com" or "john@example.com"
+
+3. [YOUR WEBSITE]
+   → Your company/product website
+   Example: "https://www.acme.com" or "https://myapp.com"
+
+4. [YOUR COMPANY NAME]
+   → Your company name (can be same as #1)
+   Example: "Acme Corporation Inc."
+
+5. [YOUR JURISDICTION]
+   → Your preferred jurisdiction for disputes
+   Example: "United Kingdom", "California, USA", "Romania"
+   (Consider choosing your actual business location)
+
+==============================================================================

@@ -1,0 +1,14 @@
+[
+  {
+    "name": "DivideByZero",
+    "signature": "ZeroDivisionError",
+    "function": "divide",
+    "patch": "def divide(a, b):\n    if b == 0:\n        return 0\n    return a / b\n"
+  },
+  {
+    "name": "WrongAdd",
+    "signature": "AssertionError",
+    "function": "add",
+    "patch": "def add(a, b):\n    return a + b\n"
+  }
+]

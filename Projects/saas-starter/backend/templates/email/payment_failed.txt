@@ -1,0 +1,17 @@
+Hi {{ user.first_name|default:user.username }},
+
+Your payment for your {{ site_name }} subscription failed.
+
+**What happened:**
+Stripe tried to charge your card but the payment was declined. Here's the error:
+{{ error_message }}
+
+**What's next:**
+Stripe will automatically retry your payment several times over the next few days before canceling your subscription. You can update your payment method anytime to prevent service interruption.
+
+**Update your billing information:**
+{{ billing_portal_url }}
+
+If you have questions or need help, reply to this email and we'll assist you right away.
+
+Thank you for using {{ site_name }}!

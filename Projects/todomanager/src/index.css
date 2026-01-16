@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg: #071a14;
+  --card: rgba(15, 40, 32, 0.85);
+  --border: rgba(46, 204, 113, 0.25);
+  --text: #ecfdf5;
+  --muted: #8ddfc1;
+}

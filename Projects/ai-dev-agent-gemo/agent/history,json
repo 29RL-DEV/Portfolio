@@ -1,0 +1,12 @@
+[
+  {
+    "timestamp": "...",
+    "bug": "WrongAdd",
+    "function": "add",
+    "confidence": 1.0,
+    "decision": "auto_merge",
+    "diff_hash": "a93f2c",
+    "tests": "passed",
+    "lines_changed": 2
+  }
+]

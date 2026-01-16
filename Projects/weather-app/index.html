@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>WeatherSync – Global Weather Intelligence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <a href="https://29rl.dev/?from=portfolio&return=/" class="back-to-portfolio-fixed" title="Back to Portfolio">
+    <i class="fas fa-arrow-left"></i>
+    <span>Portfolio</span>
+  </a>
+
+  <div class="header-top">
+    <button id="homeBtn" class="logo-btn">🌤️WeatherSync</button>
+    <div class="header-right">
+      <button id="toggleUnit" class="toggle-unit">
+        <span id="unitDisplay">°C</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div id="loadingSpinner" class="hidden">Fetching weather data...</div>
+
+    <div id="errorMessage" class="hidden error-box">
+      <span id="errorText"></span>
+      <button id="errorCloseBtn">Close</button>
+    </div>
+
+    <form class="search" id="searchForm" onsubmit="event.preventDefault();">
+      <div class="search-wrapper">
+        <input id="searchInput" placeholder="Search city..." autocomplete="off">
+        <button type="button" id="searchBtn" class="search-btn">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <ul id="suggestions"></ul>
+    </form>
+
+    <div id="emptyState" class="empty-state">
+      <div class="welcome-card">
+        <div class="welcome-icon">🌍</div>
+        <h2>Global Weather Intelligence</h2>
+        <p>Real-time weather updates from around the world</p>
+
+        <div class="welcome-features">
+          <div class="feature">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Search any city</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-thermometer-half"></i>
+            <span>Temperature & Conditions</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-calendar-days"></i>
+            <span>5-day forecast</span>
+          </div>
+        </div>
+
+        <p class="welcome-hint">Type a city name to get started</p>
+      </div>
+    </div>
+
+    <div id="currentWeather" class="weather hidden">
+      <h2 id="cityName">—</h2>
+      <div id="weatherDate" class="weather-date"></div>
+
+      <div id="weatherMapContainer" class="weather-map-container">
+        <div id="map" style="width: 100%; height: 100%;"></div>
+      </div>
+
+      <h1>
+        <span id="temperature"></span><span id="tempUnit">°C</span>
+      </h1>
+
+      <p class="feels-like">
+        Feels like <span id="feelsLike"></span><span id="feelsLikeUnit">°C</span>
+      </p>
+
+      <div class="metrics-grid">
+        <div class="metric">
+          <div class="metric-value"><span id="humidity"></span></div>
+          <div class="metric-label">🌧️ Humidity</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-value"><span id="pressure"></span></div>
+          <div class="metric-label">🔽 Pressure</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-value"><span id="visibility"></span></div>
+          <div class="metric-label">👁️ Visibility</div>
+        </div>
+
+        <div class="metric">
+          <div class="metric-value"><span id="maxTemp"></span></div>
+          <div class="metric-label">🔥 Max Temp</div>
+        </div>
+
+        <div class="metric metric-center">
+          <div class="metric-value"><span id="minTemp"></span></div>
+          <div class="metric-label">❄️ Min Temp</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="forecastSection" class="hidden">
+      <h3>5-day forecast</h3>
+      <div id="forecastContainer" class="forecast-container"></div>
+    </div>
+
+  </div>
+
+  <footer class="app-footer">
+    <p>WeatherSync © 2026 • Built by <strong>29RL</strong></p>
+  </footer>
+
+  <script type="module" src="app.js?v=7"></script>
+
+</body>
+
+</html>

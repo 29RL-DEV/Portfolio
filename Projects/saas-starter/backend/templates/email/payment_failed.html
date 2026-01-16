@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            line-height: 1.6;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .footer {
+            color: #666;
+            font-size: 12px;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>⚠️ Payment Failed</h2>
+        </div>
+
+        <div class="content">
+            <p>Hi {{ user.first_name|default:user.username }},</p>
+
+            <p>Your payment for your subscription failed.</p>
+
+            <h3>What happened:</h3>
+            <p>Stripe tried to charge your card but the payment was declined.</p>
+            <p><strong>Error:</strong> {{ error_message }}</p>
+
+            <h3>What's next:</h3>
+            <p>Stripe will automatically retry your payment several times over the next few days before canceling your
+                subscription. You can update your payment method anytime to prevent service interruption.</p>
+
+            <p>
+                <a href="{{ billing_portal_url }}" class="button">Update Billing Information</a>
+            </p>
+
+            <p>If you have questions or need help, reply to this email and we'll assist you right away.</p>
+
+            <p>Thank you,<br>The Team</p>
+        </div>
+
+        <div class="footer">
+            <p>This is an automated message. Please do not reply with attachments.</p>
+        </div>
+    </div>
+</body>
+
+</html>

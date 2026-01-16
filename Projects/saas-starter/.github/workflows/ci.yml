@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          cd backend
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run Django checks
+        run: |
+          cd backend
+          python manage.py check --deploy || true
+      - name: Run tests
+        run: |
+          cd backend
+          python manage.py test
+      - name: Run collectstatic (check)
+        run: |
+          cd backend
+          python manage.py collectstatic --noinput

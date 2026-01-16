@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Robert Lisita | Junior Full-Stack Developer</title>
+
+  <meta name="description"
+    content="Junior full-stack developer building modern web applications, including AI-powered tools and SaaS platforms, with a focus on real-world systems and developer productivity.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="home">
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#home" class="logo">RL<span>.DEV</span></a>
+      <button class="menu-toggle" aria-expanded="false" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+        <li>
+          <a href="https://app.cal.eu/rl-dev/30min?overlayCalendar=true" target="_blank" rel="noopener" class="nav-cta">
+            Book a Call
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div class="hero-text">
+        <h1>Robert Lisita</h1>
+        <h2>Junior Full-Stack Developer building modern web, AI & SaaS products</h2>
+
+        <p>
+          I build modern web applications, including AI-powered tools and SaaS platforms,
+          focused on developer productivity, automation and real-world use cases.
+          Through academic study and personal projects, I have worked with frontend, backend, databases and core application logic.
+        </p>
+
+        <p><strong>
+            The projects below are real working applications or active experiments - not mockups.
+          </strong></p>
+
+        <p class="hero-sub">
+          Early-stage builder exploring modern web development, AI integration and scalable systems.
+        </p>
+
+        <a href="#projects" class="btn primary">View Projects</a>
+      </div>
+
+      <div class="hero-code">
+        <pre><code>AI Dev Agent - Developer Productivity Loop
+
+[1] Ingest repository and test results
+[2] Analyse failures and logs
+[3] Build relevant code context
+[4] Generate candidate fixes
+[5] Rank and explain solutions
+[6] Apply changes in isolated branch
+[7] Re-run tests
+[8] Produce reports and suggestions
+</code></pre>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="projects-grid">
+
+        <!-- AI AGENT -->
+        <div class="project-card private-card">
+          <h3>AI Agent Demo</h3>
+          <p>
+            An experimental AI developer agent designed to assist with debugging workflows.
+            It ingests test results, code source and logs, analyses failures
+            and proposes concrete code changes to reduce manual debugging time.
+          </p>
+          <p class="tech">Python · OpenAI · GitHub API · Test Automation</p>
+          <div class="project-footer">
+            <a href="#contact" class="project-cta">Request Access</a>
+            <span class="badge private-badge">🔒 Developer Tool</span>
+          </div>
+        </div>
+
+        <!-- SAAS -->
+        <div class="project-card business-card">
+          <h3>SaaS Starter Platform</h3>
+          <p>
+            A full-stack SaaS starter platform modelling how real subscription-based products work.
+            Includes authentication, user dashboards, database integration and billing flows,
+            built with production-oriented architecture in mind.
+          </p>
+          <p class="tech">Django · PostgreSQL · Stripe · Auth · AI</p>
+          <div class="project-footer">
+            <a href="https://your-saas-url.com/?from=rl" class="project-cta">Open Demo</a>
+            <span class="badge demo-badge">🟡 Live APP</span>
+          </div>
+        </div>
+
+        <!-- TODO -->
+        <div class="project-card business-card">
+          <h3>Todo List Web App</h3>
+          <p>
+            A full-stack task management application featuring authentication,
+            persistent data storage and structured CRUD operations.
+            Built to practice clean backend APIs and modern frontend integration.
+          </p>
+          <p class="tech">Django · React · PostgreSQL · JWT · Vercel</p>
+          <div class="project-footer">
+            <a href="" class="project-cta">
+              Open App
+            </a>
+            <span class="badge live-badge">🟢 Live App</span>
+          </div>
+        </div>
+
+        <!-- WEATHER -->
+        <div class="project-card demo-card">
+          <h3>Weather Forecast App</h3>
+          <p>
+            A responsive frontend application integrating a public weather API
+            to display real-time forecast data through a clean and interactive interface.
+            Focused on API consumption and frontend state handling.
+          </p>
+          <p class="tech">JavaScript · REST API · Frontend · GitHub Pages</p>
+          <div class="project-footer">
+            <a href="projects/weather-app/index.html" class="project-cta">Open Demo</a>
+            <span class="badge demo-badge">🟢 Live Demo</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-box">
+          <h3>AI & Automation</h3>
+          <ul>
+            <li>LLM-assisted code analysis</li>
+            <li>AI-supported debugging workflows</li>
+            <li>Developer productivity tooling</li>
+          </ul>
+        </div>
+
+        <div class="skill-box">
+          <h3>Full-Stack & SaaS</h3>
+          <ul>
+            <li>Authentication & user systems</li>
+            <li>REST APIs & databases</li>
+            <li>SaaS architecture fundamentals</li>
+          </ul>
+        </div>
+
+        <div class="skill-box">
+          <h3>Web Development</h3>
+          <ul>
+            <li>Backend development</li>
+            <li>Modern frontend interfaces</li>
+            <li>Secure data handling</li>
+            <li>Cloud deployments</li>
+          </ul>
+        </div>
+
+        <div class="skill-box">
+          <h3>Software Engineering</h3>
+          <ul>
+            <li>Modular application design</li>
+            <li>Practical AI integration</li>
+            <li>Version control & testing</li>
+            <li>Maintainable codebases</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Let's Connect</h2>
+
+      <div class="contact-icons">
+        <a href="https://github.com/29rl" target="_blank" rel="noopener" class="contact-icon">
+          <i class="fab fa-github"></i><span>GitHub</span>
+        </a>
+        <a href="https://linkedin.com/in/robertlisita" target="_blank" rel="noopener" class="contact-icon">
+          <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=robertlisita29@gmail.com" target="_blank" rel="noopener"
+          class="contact-icon">
+          <i class="fas fa-envelope"></i><span>Email</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"> 
+    © <span id="currentYear">2026</span> <a href="#home" class="logo">RL<span>.DEV</span></a>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

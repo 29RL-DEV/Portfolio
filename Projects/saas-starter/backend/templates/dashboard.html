@@ -1,0 +1,18 @@
+<h1>Welcome {{ request.user.username }}</h1>
+
+{% if request.user.profile.is_subscribed %}
+<p>🔥 You are PRO</p>
+{% else %}
+<p>Free plan</p>
+<button onclick="upgrade()">Upgrade to Pro</button>
+{% endif %}
+
+<script>
+    function upgrade() {
+        fetch("/billing/checkout/")
+            .then(r => r.json())
+            .then(data => {
+                window.location.href = data.url;
+            });
+    }
+</script>

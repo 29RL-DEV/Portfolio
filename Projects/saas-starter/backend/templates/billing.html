@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .nav-links a {
+            color: #667eea;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-past_due {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-unpaid {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-canceled {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .status-inactive {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .info-item {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .info-label {
+            color: #666;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-value {
+            color: #333;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .invoice-history {
+            margin-top: 2rem;
+        }
+
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .invoice-table th {
+            background: #f8f9fa;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .invoice-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .invoice-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-paid {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .status-pending {
+            color: #ffc107;
+            font-weight: 600;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Billing Dashboard</h1>
+            <div class="nav-links">
+                <a href="/billing/pricing/">Plans</a>
+                <a href="/billing/status/">View Details</a>
+                <a href="/">Home</a>
+            </div>
+        </header>
+
+        {% if profile.subscription_status == 'past_due' %}
+        <div class="warning">
+            <strong>⚠️ Payment Due</strong><br>
+            Your subscription payment is overdue. Please update your payment method to continue service.
+        </div>
+        {% elif profile.subscription_status == 'unpaid' %}
+        <div class="warning">
+            <strong>⚠️ Payment Failed</strong><br>
+            Your last payment failed. Please update your payment method immediately.
+        </div>
+        {% endif %}
+
+        <!-- Current Plan -->
+        <div class="card">
+            <h2>Current Plan</h2>
+            {% if profile.is_subscribed %}
+            <span class="status-badge status-{{ profile.subscription_status }}">
+                {{ profile.get_subscription_status_display }}
+            </span>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Plan</div>
+                    <div class="info-value">{{ profile.get_plan_display }}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Renewal Date</div>
+                    <div class="info-value">
+                        {% if profile.current_period_end %}
+                        {{ profile.current_period_end|date:"M d, Y" }}
+                        {% else %}
+                        N/A
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Days Until Renewal</div>
+                    <div class="info-value">
+                        {% if profile.days_until_renewal >= 0 %}
+                        {{ profile.days_until_renewal }} days
+                        {% else %}
+                        Renewing soon
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <a href="/billing/portal/" class="btn btn-secondary">Manage Subscription</a>
+                <a href="/billing/status/" class="btn btn-secondary">View Invoices</a>
+            </div>
+            {% else %}
+            <span class="status-badge status-inactive">Free Plan</span>
+            <p style="color: #666; margin: 1rem 0;">You are currently on the Free plan.</p>
+            <a href="/billing/pricing/" class="btn btn-primary">Upgrade to Pro</a>
+            {% endif %}
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="card">
+            <h2>Actions</h2>
+            <div class="actions">
+                <a href="/billing/pricing/" class="btn btn-secondary">View All Plans</a>
+                <a href="/billing/portal/" class="btn btn-secondary">Payment Methods</a>
+                <a href="/billing/status/" class="btn btn-secondary">Billing History</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; color: #666; margin-top: 3rem;">
+            <p>Need help? Please contact us using the contact information provided on our website.</p>
+            <p style="margin-top: 1rem;">
+                <a href="/terms/" style="color: #667eea; margin: 0 0.5rem;">Terms</a>
+                <a href="/privacy/" style="color: #667eea; margin: 0 0.5rem;">Privacy</a>
+                <a href="/cookies/" style="color: #667eea; margin: 0 0.5rem;">Cookies</a>
+            </p>
+        </div>
+    </div>
+    
+    {% include 'includes/cookie_consent.html' %}
+</body>
+
+</html>

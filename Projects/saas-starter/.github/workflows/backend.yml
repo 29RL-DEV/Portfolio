@@ -1,0 +1,103 @@
+name: Backend Tests & Security
+
+on:
+  push:
+    branches: [main, develop]
+    paths: ["backend/**", "docker-compose.yml", ".github/workflows/backend.yml"]
+  pull_request:
+    branches: [main, develop]
+    paths: ["backend/**", "docker-compose.yml"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: test_db
+          POSTGRES_USER: test_user
+          POSTGRES_PASSWORD: test_pass
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+      redis:
+        image: redis:7-alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          pip install -r requirements.txt
+
+      - name: Run Django Tests
+        env:
+          DATABASE_URL: postgresql://test_user:test_pass@localhost:5432/test_db
+          REDIS_URL: redis://localhost:6379
+          DEBUG: False
+          SECRET_KEY: test-secret-key
+          STRIPE_SECRET_KEY: sk_test_dummy
+          STRIPE_PUBLIC_KEY: pk_test_dummy
+        run: |
+          cd backend
+          python manage.py test --no-input
+
+      - name: Run pytest
+        env:
+          DATABASE_URL: postgresql://test_user:test_pass@localhost:5432/test_db
+          REDIS_URL: redis://localhost:6379
+          DEBUG: False
+          SECRET_KEY: test-secret-key
+          STRIPE_SECRET_KEY: sk_test_dummy
+          STRIPE_PUBLIC_KEY: pk_test_dummy
+        run: |
+          cd backend
+          pytest -v
+
+  security:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install bandit safety
+          cd backend && pip install -r requirements.txt
+
+      - name: Run Bandit (security linting)
+        continue-on-error: true
+        run: |
+          cd backend
+          bandit -r . -ll --format json -o bandit-report.json || true
+
+      - name: Check for vulnerable dependencies
+        run: |
+          cd backend
+          safety check --json || true

@@ -1,0 +1,64 @@
+{
+  "services": [
+    {
+      "type": "web",
+      "name": "backend",
+      "env": "python",
+      "plan": "standard",
+      "buildCommand": "cd backend && pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput",
+      "startCommand": "cd backend && gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 4 --worker-class sync --timeout 60",
+      "envVars": [
+        {
+          "key": "DATABASE_URL",
+          "scope": "build"
+        },
+        {
+          "key": "REDIS_URL",
+          "scope": "build"
+        },
+        {
+          "key": "SECRET_KEY",
+          "scope": "build",
+          "sync": false
+        },
+        {
+          "key": "DEBUG",
+          "value": "False"
+        },
+        {
+          "key": "STRIPE_SECRET_KEY",
+          "scope": "build",
+          "sync": false
+        },
+        {
+          "key": "STRIPE_PUBLIC_KEY",
+          "scope": "build",
+          "sync": false
+        },
+        {
+          "key": "STRIPE_WEBHOOK_SECRET",
+          "scope": "build",
+          "sync": false
+        },
+        {
+          "key": "EMAIL_HOST",
+          "scope": "build",
+          "sync": false
+        },
+        {
+          "key": "EMAIL_HOST_USER",
+          "scope": "build",
+          "sync": false
+        },
+        {
+          "key": "EMAIL_HOST_PASSWORD",
+          "scope": "build",
+          "sync": false
+        },
+        {
+          "key": "DEFAULT_FROM_EMAIL",
+          "scope": "build"
+        }
+      ]
+    }
+  ]
