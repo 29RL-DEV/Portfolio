@@ -1,11 +1,10 @@
-/* ==========================================
-   Detect mobile devices (UI behavior only)
-========================================== */
-const isMobile = window.matchMedia("(max-width: 768px)").matches;
+/* Detect mobile devices - UI behavior only */
+function isMobileView() {
+  return window.matchMedia("(max-width: 768px)").matches;
+}
 
-/* ==========================================
-   Decode Text Effect (Hero Code)
-========================================== */
+
+/* Decode Text Effect - Hero Code */
 const decodeChars =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-={}[]<>?/";
 
@@ -40,9 +39,7 @@ function decodeText(element, finalText, speed = 30) {
   }, speed);
 }
 
-/* ==========================================
-   Hero Flip + Decode Control
-========================================== */
+/* Hero Flip + Decode Control */
 let heroPlayed = false;
 
 function playHeroAnimation() {
@@ -52,17 +49,14 @@ function playHeroAnimation() {
   const backCodeEl = document.querySelector(".hero-code-back code");
   if (!card || !backCodeEl) return;
 
-  console.log("✅ Hero animation starting");
   heroPlayed = true;
 
   // Trigger flip instantly
   setTimeout(() => {
-    console.log("✅ Adding .is-flipped class");
     card.classList.add("is-flipped");
 
     // Start decoding 600ms after flip completes
     setTimeout(() => {
-      console.log("✅ Starting decode on back face");
       decodeText(
         backCodeEl,
         `AI Dev Agent - Developer Productivity Loop
@@ -93,9 +87,7 @@ function resetHeroAnimation() {
   backCodeEl.textContent = "";
 }
 
-/* ==========================================
-   Auto-flip on Scroll Visibility
-========================================== */
+/* Auto-flip on scroll visibility */
 let isFirstCardView = true;
 
 function setupCardVisibilityObserver() {
@@ -129,9 +121,7 @@ function setupCardVisibilityObserver() {
   observer.observe(card);
 }
 
-/* ==========================================
-   Main App Init
-========================================== */
+/* Main App Init */
 function initApp() {
   /* Mobile Menu */
   const menuToggle = document.querySelector(".menu-toggle");
@@ -158,8 +148,8 @@ function initApp() {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  /* Project Card Hover (desktop only) */
-  if (!isMobile) {
+  /* Project Card Hover - desktop only */
+  if (!isMobileView()) {
     document.querySelectorAll(".project-card").forEach((card) => {
       card.addEventListener("mouseenter", () => {
         card.style.transform = "translateY(-10px) scale(1.02)";

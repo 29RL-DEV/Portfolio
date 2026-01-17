@@ -1,6 +1,4 @@
-/* ============================================
-    VARIABLES & RESET
-    ============================================ */
+ /* VARIABLES & RESET */
 
 :root {
   --bg: #070807;
@@ -32,9 +30,7 @@
   box-sizing: border-box;
 }
 
-/* ============================================
-    BASE STYLES
-    ============================================ */
+/* BASE STYLES */
 
 body {
   background: radial-gradient(circle at top, #0f1b14, #070807);
@@ -87,9 +83,7 @@ section {
   -webkit-text-fill-color: transparent;
 }
 
-/* ============================================
-    NAVIGATION
-    ============================================ */
+/* NAVIGATION */
 
 .navbar {
   position: fixed;
@@ -160,9 +154,7 @@ section {
   cursor: pointer;
 }
 
-/* ============================================
-    HERO SECTION
-    ============================================ */
+/* HERO SECTION */
 
 .hero {
   min-height: 100vh;
@@ -181,7 +173,7 @@ section {
 }
 
 .hero-text h1 {
-  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
   line-height: 1.05;
   background: var(--reggae-gradient);
   -webkit-background-clip: text;
@@ -225,7 +217,11 @@ section {
   transform: rotateY(180deg);
 }
 
-/* Front face (blurred) */
+.hero-code.is-paused {
+  pointer-events: none;
+}
+
+/* Front face - blurred */
 .hero-code-front {
   position: absolute;
   width: 100%;
@@ -247,7 +243,7 @@ section {
 }
 
 .hero-code-front-text {
-  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
   color: #e5e7eb;
   white-space: pre-wrap;
   word-break: break-word;
@@ -257,7 +253,7 @@ section {
   opacity: 0.6;
 }
 
-/* Back face (decoding text) */
+/* Back face - decoding text */
 .hero-code-back {
   position: absolute;
   width: 100%;
@@ -279,7 +275,7 @@ section {
 
 .hero-code-back code {
   color: #e5e7eb;
-  font-size: clamp(0.7rem, 2.6vw, 1.1rem);
+  font-size: clamp(0.85rem, 2.6vw, 1.2rem);
   white-space: pre-wrap;
   word-break: break-word;
   line-height: 1.2;
@@ -296,16 +292,26 @@ section {
   position: relative;
   z-index: 1;
   color: #e5e7eb;
-  font-size: clamp(0.7rem, 2.6vw, 1.1rem);
+  font-size: clamp(0.85rem, 2.6vw, 1.2rem);
   white-space: pre-wrap;
   word-break: break-word;
   line-height: 1.45;
 }
 
-/* ============================================
-    BUTTONS
-    ============================================ */
+.decode-cursor::after {
+  content: "▍";
+  margin-left: 2px;
+  animation: blink 1s steps(1) infinite;
+  color: #00f6ff;
+}
 
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* BUTTONS */
 .btn {
   padding: 12px 22px;
   border-radius: 12px;
@@ -336,9 +342,7 @@ section {
   background: rgba(31, 167, 102, 0.08);
 }
 
-/* ============================================
-    PROJECTS
-    ============================================ */
+/* PROJECTS */
 
 .projects-grid {
   display: grid;
@@ -389,7 +393,7 @@ section {
   margin-bottom: auto;
 }
 
-/* Card Color Variants */
+/* Card Color */
 .private-card {
   border-color: rgba(230, 57, 70, 0.65);
   background:
@@ -431,7 +435,7 @@ section {
   color: var(--safe);
 }
 
-/* ===== Project card footer spacing fix ===== */
+/*  Project card footer */
 .project-footer {
   display: flex;
   flex-direction: column;
@@ -519,9 +523,7 @@ section {
   color: var(--safe);
 }
 
-/* ============================================
-    SKILLS
-    ============================================ */
+/* SKILLS */
 
 .skills-grid {
   display: grid;
@@ -587,9 +589,7 @@ section {
   margin: 6px 0;
 }
 
-/* ============================================
-    CONTACT
-    ============================================ */
+/* CONTACT */
 
 .contact-icons {
   display: flex;
@@ -625,9 +625,7 @@ section {
   color: var(--safe);
 }
 
-/* ============================================
-    FOOTER
-    ============================================ */
+/* FOOTER */
 
 .footer {
   padding: 40px 0;
@@ -640,30 +638,9 @@ section {
   font-size: 1.1rem;
 }
 
-/* ============================================
-    RESPONSIVE DESIGN
-    ============================================ */
-
-@media (max-width: 480px) {
-  section {
-    padding: 70px 0;
-  }
-}
+/* RESPONSIVE DESIGN */
 
 @media (max-width: 900px) {
-  .project-card h3 {
-    font-size: 1rem;
-    min-height: 2.6rem;
-    display: flex;
-    align-items: center;
-  }
-
-  .project-card p {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    flex-grow: 1;
-  }
-
   .nav-container {
     height: 60px;
   }
@@ -680,15 +657,120 @@ section {
     transition: transform 0.8s ease;
     perspective: 1200px;
   }
+
+  .project-card h3 {
+    font-size: 1rem;
+    min-height: 2.6rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .project-card p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    flex-grow: 1;
+  }
 }
 
 @media (max-width: 768px) {
   .hero-grid {
     grid-template-columns: 1fr;
   }
+
+  .hero-code {
+    min-height: 300px;
+  }
+
+  .hero-code-inner {
+    height: 300px;
+  }
+
+  .hero-code-front {
+    min-height: 300px;
+    padding: 16px;
+  }
+
+  .hero-code-front-text {
+    font-size: 0.95rem;
+  }
+
+  .hero-code-back {
+    min-height: 300px;
+    padding: 16px;
+  }
+
+  .hero-code-back code {
+    font-size: 0.85rem;
+  }
 }
 
-@media (min-width: 420px) and (max-width: 900px) {
+@media (max-width: 600px) {
+  section {
+    padding: 70px 0;
+  }
+
+  .hero {
+    padding-top: 90px;
+    padding-bottom: 60px;
+  }
+
+  .hero-code {
+    min-height: 280px;
+    padding: 16px;
+  }
+
+  .hero-code-inner {
+    height: 280px;
+  }
+
+  .hero-code-front {
+    min-height: 280px;
+    padding: 10px;
+  }
+
+  .hero-code-front-text {
+    font-size: 0.8rem;
+    line-height: 1.15;
+  }
+
+  .hero-code-back {
+    min-height: 280px;
+    padding: 10px;
+  }
+
+  .hero-code-back code {
+    font-size: 0.7rem;
+    line-height: 1.2;
+  }
+
+  .contact-icons {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .skill-box {
+    max-width: 340px;
+    width: 100%;
+  }
+
+  .project-card {
+    max-width: 340px;
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 420px) {
   .logo {
     font-size: clamp(1rem, 3.5vw, 1.2rem);
     margin-right: 8px;
@@ -702,29 +784,7 @@ section {
   .nav-links a {
     font-size: 0.95rem;
   }
-}
 
-@media (max-width: 480px) {
-  .hero {
-    padding-top: 90px;
-    padding-bottom: 60px;
-  }
-
-  .hero-code {
-    padding: 16px;
-  }
-
-  .contact-icons {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 420px) {
   .project-card {
     padding: 16px;
     min-height: unset;
@@ -752,99 +812,5 @@ section {
 @media (min-width: 1600px) {
   .container {
     max-width: 1400px;
-  }
-}
-
-/* last edit */
-
-.decode-cursor::after {
-  content: "▍";
-  margin-left: 2px;
-  animation: blink 1s steps(1) infinite;
-  color: #00f6ff;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-.hero-code-inner {
-  position: relative;
-  width: 100%;
-  height: 260px;
-  transition: transform 0.8s ease-in-out;
-  transform-style: preserve-3d;
-  transform: rotateY(0deg);
-}
-
-.hero-code.is-flipped .hero-code-inner {
-  transform: rotateY(180deg);
-}
-
-.hero-code.is-paused {
-  pointer-events: none;
-}
-
-/* ============================================
-    RESPONSIVE - MOBILE
-    ============================================ */
-
-@media (max-width: 768px) {
-  .hero-code {
-    min-height: 300px;
-  }
-
-  .hero-code-inner {
-    height: 300px;
-  }
-
-  .hero-code-front {
-    min-height: 300px;
-    padding: 16px;
-  }
-
-  .hero-code-front-text {
-    font-size: 0.75rem;
-  }
-
-  .hero-code-back {
-    min-height: 300px;
-    padding: 16px;
-  }
-
-  .hero-code-back code {
-    font-size: 0.65rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-code {
-    min-height: 280px;
-  }
-
-  .hero-code-inner {
-    height: 280px;
-  }
-
-  .hero-code-front {
-    min-height: 280px;
-    padding: 10px;
-  }
-
-  .hero-code-front-text {
-    font-size: 0.6rem;
-    line-height: 1.1;
-  }
-
-  .hero-code-back {
-    min-height: 280px;
-    padding: 10px;
-  }
-
-  .hero-code-back code {
-    font-size: 0.5rem;
-    line-height: 1.15;
   }
 }
