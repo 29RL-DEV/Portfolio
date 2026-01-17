@@ -49,22 +49,22 @@ function playHeroAnimation() {
   if (heroPlayed) return;
 
   const card = document.querySelector(".hero-code");
-  const codeEl = document.getElementById("hero-decode");
-  if (!card || !codeEl) return;
+  const backCodeEl = document.querySelector(".hero-code-back code");
+  if (!card || !backCodeEl) return;
 
   console.log("✅ Hero animation starting");
   heroPlayed = true;
 
-  // Trigger flip at 1800ms
+  // Trigger flip instantly
   setTimeout(() => {
     console.log("✅ Adding .is-flipped class");
     card.classList.add("is-flipped");
 
-    // Start decoding 700ms after flip completes
+    // Start decoding 600ms after flip completes
     setTimeout(() => {
-      console.log("✅ Starting decode");
+      console.log("✅ Starting decode on back face");
       decodeText(
-        codeEl,
+        backCodeEl,
         `AI Dev Agent - Developer Productivity Loop
 
 [1] Ingest repository and test results
@@ -76,21 +76,57 @@ function playHeroAnimation() {
 [7] Re-run tests
 [8] Produce reports and suggestions
 `,
-        28,
+        20,
       );
-    }, 700);
-  }, 1800);
+    }, 600);
+  }, 0);
 }
 
 function resetHeroAnimation() {
   const card = document.querySelector(".hero-code");
-  const codeEl = document.getElementById("hero-decode");
-  if (!card || !codeEl) return;
+  const backCodeEl = document.querySelector(".hero-code-back code");
+  if (!card || !backCodeEl) return;
 
   heroPlayed = false;
   decodeRunning = false;
   card.classList.remove("is-flipped");
-  codeEl.textContent = "";
+  backCodeEl.textContent = "";
+}
+
+/* ==========================================
+   Auto-flip on Scroll Visibility
+========================================== */
+let isFirstCardView = true;
+
+function setupCardVisibilityObserver() {
+  const card = document.querySelector(".hero-code");
+  if (!card) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Card is visible - trigger flip animation if not played yet
+          if (!heroPlayed) {
+            if (isFirstCardView) {
+              // First time - use 1500ms delay
+              setTimeout(playHeroAnimation, 1000);
+              isFirstCardView = false;
+            } else {
+              // Returning from scroll - instant
+              setTimeout(playHeroAnimation, 0);
+            }
+          }
+        } else {
+          // Card is out of view - reset it
+          resetHeroAnimation();
+        }
+      });
+    },
+    { threshold: 0.1 }, // Trigger when at least 10% is visible
+  );
+
+  observer.observe(card);
 }
 
 /* ==========================================
@@ -153,11 +189,13 @@ function initApp() {
     });
   });
 
-  /* Navbar + Hero Logic */
+  /* Navbar + Hero Logic with Intersection Observer */
   const navbar = document.querySelector(".navbar");
 
-  if (!navbar || isMobile) {
-    playHeroAnimation();
+  // Setup auto-flip on scroll visibility
+  setupCardVisibilityObserver();
+
+  if (!navbar) {
     return;
   }
 
@@ -169,12 +207,6 @@ function initApp() {
     if (currentScroll <= 0) {
       navbar.style.transform = "translateY(0)";
       navbar.style.boxShadow = "none";
-
-      if (heroPlayed) {
-        resetHeroAnimation();
-        setTimeout(playHeroAnimation, 300);
-      }
-
       lastScroll = currentScroll;
       return;
     }
@@ -189,8 +221,6 @@ function initApp() {
     lastScroll = currentScroll;
   });
 
-  /* Initial Hero Trigger */
-  playHeroAnimation();
 }
 
 /* DOM Ready */

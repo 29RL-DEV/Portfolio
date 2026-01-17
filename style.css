@@ -1,4 +1,3 @@
-
 /* ============================================
     VARIABLES & RESET
     ============================================ */
@@ -205,16 +204,93 @@ section {
   font-size: 1.1rem;
   line-height: 1.5;
   position: relative;
-  max-width: 550px;
+  max-width: 100%;
+  width: 100%;
   margin-left: auto;
-  min-height: 260px;
+  min-height: 350px;
   perspective: 1200px;
-  overflow: hidden;
+  overflow: visible;
 }
 
+.hero-code-inner {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  transition: transform 0.8s ease-in-out;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+}
 
-/* ===== HERO CODE 3D FLIP ===== */
+.hero-code.is-flipped .hero-code-inner {
+  transform: rotateY(180deg);
+}
 
+/* Front face (blurred) */
+.hero-code-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: linear-gradient(
+    135deg,
+    rgba(31, 167, 102, 0.1),
+    rgba(230, 57, 70, 0.08)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+  min-height: 350px;
+}
+
+.hero-code-front-text {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+  color: #e5e7eb;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.2;
+  filter: blur(3px);
+  user-select: none;
+  opacity: 0.6;
+}
+
+/* Back face (decoding text) */
+.hero-code-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  background: linear-gradient(
+    135deg,
+    rgba(31, 167, 102, 0.1),
+    rgba(230, 57, 70, 0.08)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+  min-height: 350px;
+}
+
+.hero-code-back code {
+  color: #e5e7eb;
+  font-size: clamp(0.7rem, 2.6vw, 1.1rem);
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.2;
+}
+
+.hero-code-back pre {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+}
 
 .hero-code code {
   position: relative;
@@ -285,7 +361,9 @@ section {
   justify-content: flex-start;
   height: 100%;
   min-height: 400px;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .project-card:hover {
@@ -295,7 +373,6 @@ section {
 .project-card:hover .project-cta {
   background: rgba(255, 255, 255, 0.06);
 }
-
 
 .project-card h3 {
   margin-bottom: 10px;
@@ -363,8 +440,6 @@ section {
   padding-top: 14px;
   padding-bottom: 4px;
 }
-
-
 
 /* Project Badges */
 .badge {
@@ -443,7 +518,6 @@ section {
   border-color: rgba(31, 167, 102, 0.5);
   color: var(--safe);
 }
-
 
 /* ============================================
     SKILLS
@@ -570,13 +644,11 @@ section {
     RESPONSIVE DESIGN
     ============================================ */
 
-    @media (max-width: 480px) {
+@media (max-width: 480px) {
   section {
     padding: 70px 0;
   }
 }
-
-
 
 @media (max-width: 900px) {
   .project-card h3 {
@@ -698,35 +770,81 @@ section {
   }
 }
 
-
 .hero-code-inner {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 260px;
+  transition: transform 0.8s ease-in-out;
   transform-style: preserve-3d;
-  transition: transform 1s ease, filter 1s ease;
-  filter: blur(12px);
-  background: #0a0a0a;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  transform: rotateY(0deg);
 }
-
-
 
 .hero-code.is-flipped .hero-code-inner {
   transform: rotateY(180deg);
-  filter: blur(0);
 }
-
 
 .hero-code.is-paused {
   pointer-events: none;
 }
 
-.hero-code code {
-  display: block;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
+/* ============================================
+    RESPONSIVE - MOBILE
+    ============================================ */
+
+@media (max-width: 768px) {
+  .hero-code {
+    min-height: 300px;
+  }
+
+  .hero-code-inner {
+    height: 300px;
+  }
+
+  .hero-code-front {
+    min-height: 300px;
+    padding: 16px;
+  }
+
+  .hero-code-front-text {
+    font-size: 0.75rem;
+  }
+
+  .hero-code-back {
+    min-height: 300px;
+    padding: 16px;
+  }
+
+  .hero-code-back code {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-code {
+    min-height: 280px;
+  }
+
+  .hero-code-inner {
+    height: 280px;
+  }
+
+  .hero-code-front {
+    min-height: 280px;
+    padding: 10px;
+  }
+
+  .hero-code-front-text {
+    font-size: 0.6rem;
+    line-height: 1.1;
+  }
+
+  .hero-code-back {
+    min-height: 280px;
+    padding: 10px;
+  }
+
+  .hero-code-back code {
+    font-size: 0.5rem;
+    line-height: 1.15;
+  }
 }
