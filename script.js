@@ -1,17 +1,19 @@
-// Detect mobile devices
+/* ==========================================
+   Detect mobile devices (UI behavior only)
+========================================== */
 const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
 function initApp() {
   /* ===============================
-     Mobile Menu
+     Mobile Menu Toggle
   =============================== */
   const menuToggle = document.querySelector(".menu-toggle");
   const navLinks = document.querySelector(".nav-links");
 
   if (menuToggle && navLinks) {
     menuToggle.addEventListener("click", () => {
-      const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!expanded));
       navLinks.classList.toggle("active");
     });
 
@@ -26,13 +28,13 @@ function initApp() {
   /* ===============================
      Dynamic Year
   =============================== */
-  const year = document.getElementById("currentYear");
-  if (year) {
-    year.textContent = new Date().getFullYear();
+  const yearEl = document.getElementById("currentYear");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
   }
 
   /* ===============================
-     Project Card Hover (desktop)
+     Project Card Hover (desktop only)
   =============================== */
   if (!isMobile) {
     document.querySelectorAll(".project-card").forEach((card) => {
@@ -47,7 +49,7 @@ function initApp() {
   }
 
   /* ===============================
-     Smooth Scroll
+     Smooth Scroll for Anchor Links
   =============================== */
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
@@ -60,14 +62,14 @@ function initApp() {
       e.preventDefault();
 
       window.scrollTo({
-        top: target.offsetTop - 80,
+        top: target.offsetTop - 80, // offset for fixed navbar
         behavior: "smooth",
       });
     });
   });
 
   /* ===============================
-     Navbar Scroll Behavior (desktop)
+     Navbar Hide / Show on Scroll (desktop)
   =============================== */
   const navbar = document.querySelector(".navbar");
   if (!navbar || isMobile) return;
@@ -75,23 +77,23 @@ function initApp() {
   let lastScroll = 0;
 
   window.addEventListener("scroll", () => {
-    const current = window.pageYOffset;
+    const currentScroll = window.pageYOffset;
 
-    if (current <= 0) {
+    if (currentScroll <= 0) {
       navbar.style.transform = "translateY(0)";
       navbar.style.boxShadow = "none";
-      lastScroll = current;
+      lastScroll = currentScroll;
       return;
     }
 
-    if (current > lastScroll) {
+    if (currentScroll > lastScroll) {
       navbar.style.transform = "translateY(-100%)";
     } else {
       navbar.style.transform = "translateY(0)";
       navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,0.15)";
     }
 
-    lastScroll = current;
+    lastScroll = currentScroll;
   });
 }
 
