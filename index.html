@@ -6,7 +6,7 @@
     <title>Robert Lisita | Junior Full-Stack Developer</title>
 
     <meta name="description"
-        content="Junior full-stack developer focused on building and understanding real web systems, from frontend interfaces to backend logic, data flow and integrations. Interested in practical problem solving, SaaS products and AI-assisted development.">
+        content="Junior full-stack developer focused on understanding how real web applications work end-to-end, from frontend interfaces to backend logic, data flow, authentication and third-party integrations. Interested in practical problem solving, SaaS products and AI-assisted development.">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -56,25 +56,22 @@
                 <h2>Junior Full-Stack Developer</h2>
 
                 <p>
-                    <p>
-                        I’m a junior full-stack developer with a passion for understanding how web applications function end-to-end - ranging from
-                        frontend interfaces and user flows to backend logic, data handling and third-party integrations. My focus is on
-                        building systems that address real-world problems, rather than just adding isolated features.
-                    </p>
+                    I’m a junior full-stack developer focused on understanding how real web applications work
+                    end-to-end.
+                    My work goes beyond UI implementation and explores how frontend, backend logic, data flow,
+                    authentication and third-party services interact in real systems.
                 </p>
 
                 <p>
-                    <p>
-                        Most of my experience comes from in-depth academic study and hands-on projects, where I’ve been challenged to think
-                        about application architecture, data flow, user authentication and external service integrations - going beyond the
-                        simple task of UI implementation.
-                    </p>
+                    Most of my experience comes from hands-on projects where I’ve built complete application flows —
+                    from user authentication and database interaction to external API and payment integrations.
+                    I focus on building functional systems rather than isolated features or visual demos.
                 </p>
 
                 <p class="hero-sub">
-                    Currently, I’m focused on exploring SaaS-style solutions, AI-powered development and scalable web architectures.
+                    Currently exploring SaaS-style architectures, practical AI-assisted development
+                    and scalable web application patterns.
                 </p>
-
 
                 <a href="#projects" class="btn primary">View Projects</a>
             </div>
@@ -112,31 +109,39 @@
             <div class="projects-grid">
 
                 <!-- AI AGENT -->
-                <div class="project-card private-card">
+                <div class="project-card private-card" id="ai-agent-card">
                     <h3>AI Agent Demo</h3>
                     <p>
-                        An experimental AI developer assistant built to explore how AI agents can reason
-                        about programming tasks. The focus is on task decomposition, structured reasoning
-                        and analysis-driven workflows, rather than blind automation or code generation.
+                        An experimental AI developer assistant prototype built to explore how AI-assisted tools
+                        can support reasoning about programming tasks.
+                        The project focuses on structured prompts, task decomposition
+                        and analysis-driven workflows rather than autonomous execution.
                     </p>
-                    <p class="tech">Node.js · OpenAI API · Prompt Engineering · AI Agents</p>
+                    <p class="tech">
+                        Python · OpenAI API · Prompt Engineering · AI Prototyping
+                    </p>
                     <div class="project-footer">
-                        <span class="badge private-badge">🔒 Developer Experiment</span>
+                        <span class="badge private-badge">🔒 Experimental Prototype</span>
                         <a href="#contact" class="project-cta">🔒 Request Access</a>
                     </div>
                 </div>
 
                 <!-- SAAS -->
-                <div class="project-card business-card">
+                <div class="project-card business-card" id="saas-card">
                     <h3>SaaS Starter Platform</h3>
                     <p>
-                        <p>
-                            A full-stack SaaS platform built to model how real subscription-based products work. Includes authentication,
-                            protected dashboards, and live Stripe subscription flows with webhooks and billing logic. Designed as a functional
-                            SaaS foundation rather than just a UI-only demo.
-                        </p>
+                        A full-stack SaaS starter platform built to understand how subscription-based products work
+                        in practice.
+                        Includes authentication, protected routes, user dashboards,
+                        and Stripe subscription flows with webhook-based billing logic.
                     </p>
-                    <p class="tech">React · Supabase · Stripe · Serverless · SaaS Architecture</p>
+                    <p>
+                        Designed as a functional SaaS foundation and learning project,
+                        focusing on real integration patterns rather than a UI-only demo.
+                    </p>
+                    <p class="tech">
+                        React · Supabase · Stripe · Serverless · SaaS Architecture
+                    </p>
                     <div class="project-footer">
                         <span class="badge demo-badge">🟡 Live App</span>
                         <a href="https://saas-jet-five.vercel.app/" class="project-cta">Open App</a>
@@ -144,16 +149,17 @@
                 </div>
 
                 <!-- TODO -->
-                <div class="project-card business-card">
+                <div class="project-card business-card" id="todo-card">
                     <h3>To-Do Manager App</h3>
                     <p>
-                        <p>
-                            A full-stack task management application with authentication and persistent storage. Each user manages their own
-                            data through a clean CRUD interface, built to practice secure data access, state management, and real
-                            frontend-backend integration.
-                        </p>
+                        A full-stack task management application with authentication
+                        and persistent user-specific data storage.
+                        Each user manages their own tasks through a clean CRUD interface,
+                        built to practice secure data access and frontend-backend integration.
                     </p>
-                    <p class="tech">React · Supabase · Authentication · CRUD · Vercel</p>
+                    <p class="tech">
+                        React · Supabase · Authentication · CRUD · Vercel
+                    </p>
                     <div class="project-footer">
                         <span class="badge live-badge">🟢 Live App</span>
                         <a href="https://to-do-manager-mu.vercel.app/" class="project-cta">Open App</a>
@@ -161,18 +167,19 @@
                 </div>
 
                 <!-- WEATHER -->
-                <div class="project-card demo-card">
+                <div class="project-card demo-card" id="weather-app-card">
                     <h3>Weather App</h3>
                     <p>
-                        <p>
-                            A lightweight and responsive frontend application that fetches and displays real-time weather data from a public
-                            API. Built to practice async data handling, API integration, and clean UI state updates.
-                        </p>
+                        A lightweight frontend application that fetches and displays real-time weather data
+                        from a public API. Built to practice asynchronous data handling,
+                        API integration and clean UI state updates.
                     </p>
-                    <p class="tech">JavaScript · REST API · Frontend · API Integration</p>
+                    <p class="tech">
+                        JavaScript · REST API · Frontend · API Integration
+                    </p>
                     <div class="project-footer">
                         <span class="badge demo-badge">🟢 Live Demo</span>
-                        <a href="./projects/weather-app/" class="project-cta">Open Demo</a>
+                        <a href="./projects/weather-app/?from=portfolio" class="project-cta">Open Demo</a>
                     </div>
                 </div>
 
@@ -186,12 +193,13 @@
             <h2 class="section-title">Skills</h2>
 
             <div class="skills-grid">
+
                 <div class="skill-box">
                     <h3>AI & Automation</h3>
                     <ul>
-                        <li>LLM-assisted code analysis</li>
-                        <li>AI-supported debugging workflows</li>
-                        <li>Developer productivity tooling</li>
+                        <li>LLM-assisted code analysis and debugging</li>
+                        <li>Prompt design for developer tooling</li>
+                        <li>AI-assisted workflows (prototypes)</li>
                     </ul>
                 </div>
 
@@ -219,10 +227,11 @@
                     <ul>
                         <li>Modular application design</li>
                         <li>Practical AI integration</li>
-                        <li>Version control & testing</li>
+                        <li>Version control & testing basics</li>
                         <li>Maintainable codebases</li>
                     </ul>
                 </div>
+
             </div>
         </div>
     </section>

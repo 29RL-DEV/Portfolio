@@ -59,14 +59,14 @@ function playHeroAnimation() {
 
   // Wait 1.5 seconds, then decode the rest
   setTimeout(() => {
-    const stepsText = `[1] Ingest repository and test results
-[2] Analyse failures and logs
-[3] Build relevant code context
-[4] Generate candidate fixes
-[5] Rank and explain solutions
-[6] Apply changes in isolated branch
-[7] Re-run tests
-[8] Produce reports and suggestions`;
+    const stepsText = `[1] Ingest repository snapshots and test results provided manually
+[2] Analyse failing tests and error logs
+[3] Build focused code context around detected failures
+[4] Generate multiple candidate fix suggestions
+[5] Rank and explain proposed solutions
+[6] Apply changes in an isolated working branch
+[7] Re-run tests to validate fixes
+[8] Produce structured reports and developer recommendations`;
 
     // Reset decodeRunning to allow fresh decode
     decodeRunning = false;
@@ -121,14 +121,14 @@ function playFrontAnimationDecoding() {
   const frontCodeEl = document.querySelector(".hero-code-front-text");
   const title = "AI Dev Agent — Developer Productivity Loop (Target)\n\n";
 
-  const stepsText = `[1] Continuously monitor repository and CI pipelines
-[2] Detect failures across tests and runtime signals
-[3] Build deep contextual understanding of large codebases
-[4] Propose safe, context-aware code fixes
-[5] Validate fixes through automated testing cycles
-[6] Manage isolated branches and version control actions
-[7] Generate pull requests with explanations and reports
-[8] Assist developers as a persistent debugging companion`;
+  const stepsText = `[1] Continuously monitor repository activity and CI pipelines
+[2] Automatically detect failures across tests and runtime signals
+[3] Maintain deep contextual understanding of large codebases
+[4] Propose safe, context-aware code fixes aligned with existing patterns
+[5] Validate fixes through automated testing and iteration
+[6] Manage isolated branches and version control operations
+[7] Generate pull requests with clear explanations and reports
+[8] Act as a persistent AI debugging and development companion`;
 
   decodeRunning = false;
 
